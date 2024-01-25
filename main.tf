@@ -35,6 +35,8 @@ resource "google_compute_instance" "default" {
     device_name = google_compute_disk.default.name
   }
 
+  metadata_startup_script = "${file("omni_start.sh")}"
+
   network_interface {
     subnetwork = google_compute_subnetwork.default.id
     access_config {
